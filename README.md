@@ -1,38 +1,40 @@
-# 🛒 Retail Data Pipeline & Strategic Analytics (Microsoft Fabric)
+# 🛒 Tejido de Canalización de Datos Retail (Microsoft Fabric End-to-End)
 
 ## 📋 Resumen del Proyecto
-Este proyecto demuestra la implementación de una arquitectura **Lakehouse End-to-End** utilizando la plataforma **Microsoft Fabric**. Se procesó un dataset de retail de **170MB** (cientos de miles de registros) recorriendo todo el ciclo de vida del dato: desde la ingesta de archivos crudos hasta la visualización de KPIs críticos para la toma de decisiones de negocio.
+Este proyecto implementa una arquitectura **Lakehouse** completa en **Microsoft Fabric**. El objetivo es transformar un dataset masivo de transacciones de retail (~170MB) en un activo estratégico de información. El flujo abarca desde la ingesta en **OneLake** y el procesamiento distribuido con **PySpark**, hasta la entrega de un dashboard ejecutivo en **Power BI** utilizando la tecnología de vanguardia **Direct Lake**.
 
 ## 🛠️ Stack Tecnológico
+* **Entorno:** Microsoft Fabric (SaaS).
 * **Data Lake:** Azure OneLake (Arquitectura Medallion).
-* **Procesamiento de Big Data:** PySpark (Notebooks de Microsoft Fabric).
-* **Almacenamiento Inteligente:** Delta Tables (Formato optimizado para analítica).
-* **Motor de Consultas:** Punto de conexión de análisis SQL.
-* **Visualización:** Power BI con conexión **Direct Lake** (Alta velocidad y actualización en tiempo real).
+* **Ingeniería de Datos:** PySpark (Notebooks de Fabric).
+* **Almacenamiento:** Delta Tables (ACID compliant).
+* **Visualización:** Power BI (Direct Lake Mode).
 
-## 🚀 Arquitectura del Pipeline
-Implementé una arquitectura de tres capas para asegurar la calidad y escalabilidad de los datos:
+## 🚀 Arquitectura de Datos (Medallion)
+Para asegurar la integridad y escalabilidad, el pipeline se divide en tres capas lógicas:
 
-1.  **Capa Bronze (Raw):** Almacenamiento del archivo CSV original en OneLake sin transformaciones.
-2.  **Capa Silver (Cleansed):** Limpieza de esquemas, manejo de valores nulos, tipado de datos y estandarización de columnas mediante **PySpark**.
-3.  **Capa Gold (Curated):** Creación de una tabla Delta optimizada y un modelo semántico listo para el consumo del negocio.
+1.  **Capa Bronze (Raw):** Almacenamiento del archivo CSV original en su estado nativo.
+2.  **Capa Silver (Cleansed):** Limpieza de esquemas, normalización de tipos de datos, manejo de valores nulos y estandarización mediante **PySpark**.
+3.  **Capa Gold (Curated):** Tablas Delta optimizadas y modelo semántico diseñado para el consumo analítico de alta performance.
 
-## 📊 Dashboard de Negocios
-El informe final permite realizar un análisis multidimensional de la operación de retail:
+## 📊 Dashboard Ejecutivo e Insights
+El informe final proporciona una visión 360° de la operación:
 
-* **Ventas por Ciudad:** Identificación de mercados líderes (Dallas, Boston).
-* **Mix de Promociones:** Análisis de la dependencia de ofertas (BOGO vs Descuentos).
-* **Performance por Formato:** Rentabilidad comparada entre Supermercados, Farmacias y Clubes de Almacén.
-* **Interactividad:** Filtrado dinámico por temporadas (`Season`) y años mediante Slicers.
+* **Ventas por Ciudad:** Identificación de mercados líderes como Dallas y Boston (~$5.2M cada una).
+* **Análisis de Promociones:** Hallazgo crítico donde el 66% de las ventas dependen de incentivos (BOGO/Descuento).
+* **Mix de Formatos:** Comparativa de rentabilidad entre Pharmacy, Supermarket y Warehouse Club.
+* **Filtros Dinámicos:** Segmentación por temporadas (`Season`) y años para análisis de estacionalidad.
 
+### Vista Previa del Dashboard
 ![Vista General del Dashboard](dashboard_general.png)
-### 📥 Recursos del Proyecto
-[**Descargar Informe Power BI (.pbix)**](./Dashboard%20Ejecutivo%20de%20Ventas%20Retail%20Análisis%20Multidimensional.pbix)
 
-## 💡 Hallazgos Clave
-* **Dependencia Promocional:** El 66% de los ingresos totales provienen de ventas bajo promoción (BOGO/Discount), sugiriendo una oportunidad de optimización en la fidelización de clientes orgánicos.
-* **Equilibrio Geográfico:** Los ingresos están distribuidos de manera uniforme entre las ciudades principales (~$5.2M por ciudad), validando la integridad del procesamiento masivo de datos.
+## 📥 Recursos y Archivos
+* **Código de Ingeniería:** [Ver Notebook de PySpark (01_ETL_Procesamiento_Ventas.ipynb)](./01_ETL_Procesamiento_Ventas.ipynb)
+* **Archivo de Power BI:** [Descargar .pbix para visualización local](./Dashboard%20Ejecutivo%20de%20Ventas%20Retail%20Análisis%20Multidimensional.pbix)
+* **Fuente de Datos:** Dataset de retail de 170MB (Kaggle). *Por razones de seguridad y límites de almacenamiento, el archivo crudo no se aloja en este repositorio.*
+
+## 💡 Conclusión Técnica
+La implementación de este pipeline reduce la latencia de datos al utilizar **Direct Lake**, permitiendo que los cambios en el Lakehouse se reflejen instantáneamente en Power BI sin procesos de refresco tradicionales. Esto demuestra una solución de **Big Data** moderna, eficiente y lista para producción en entornos corporativos.
 
 ---
-**Desarrollado por:** Bastian Soto Morales  
-*Ingeniero Civil en Informática y Telecomunicaciones - Universidad Finis Terrae*
+**Desarrollado por:** **Bastian Soto Morales** *Ingeniero Civil en Informática y Telecomunicaciones* *Universidad Finis Terrae*
