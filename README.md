@@ -26,6 +26,8 @@ El informe final permite realizar un análisis multidimensional de la operación
 * **Interactividad:** Filtrado dinámico por temporadas (`Season`) y años mediante Slicers.
 
 ![Vista General del Dashboard](dashboard_general.png)
+### 📥 Recursos del Proyecto
+[**Descargar Informe Power BI (.pbix)**](./Dashboard%20Ejecutivo%20de%20Ventas%20Retail%20Análisis%20Multidimensional.pbix)
 
 ## 💡 Hallazgos Clave
 * **Dependencia Promocional:** El 66% de los ingresos totales provienen de ventas bajo promoción (BOGO/Discount), sugiriendo una oportunidad de optimización en la fidelización de clientes orgánicos.
